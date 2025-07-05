@@ -1,284 +1,371 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Sainni Art & Deco</title>
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
-
-    <!--------------------------------Favicon---------------------------------------------------->
-    <link rel="icon" type="image/x-icon " href="imagenes/logo.png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <!--------------------------------- Font Awesome icons (free version)------------------------>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-    <!-----------------------------------------------Google fonts--------------------------------->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <!----------------------------------estilos---------------------------------->
-    <link rel="stylesheet" media="all" href="styles.css"/>
-    <!-------------------------------------------------------------animate.style.com----------------------------------------->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-    <!--------------------------------------------Java Script------------------------------------------->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/anijs-master/anijs-min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sainni Art & Deco - Portfolio Artístico</title>
+    <meta name="description" content="Sainni Art & Deco - Portfolio de arte y decoración. Descubre nuestras creaciones únicas y personalizadas.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/placeholder.svg?height=32&width=32">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- CSS Personalizado -->
+    <link href="styles.css" rel="stylesheet">
 </head>
 
 <body>
- 
-        <!-------------------------------------------------Navigation--------------------------------------------->
-        <nav class="navbar navbar-expand-sm bg-body2 text-uppercase fixed-manual bg-dark navbar-dark " id="mainNav">
-            <div class="container">
+    <!-- NAVBAR RESPONSIVO -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#inicio">
+                <img src="/placeholder.svg?height=40&width=40" alt="Sainni Art & Deco" class="rounded-circle me-2">
+                <span class="brand-text">Sainni Art & Deco</span>
+            </a>
+            
+            <!-- Botón móvil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menú -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
                 
-                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-dark text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <em class="fas fa-bars"></em>
-                </button>
+                <!-- Redes sociales -->
+                <div class="social-icons d-flex ms-3">
+                    <a href="mailto:contacto@sainniart.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=5491133210253" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/leandro_sain/" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item">
-                            <a class="nav-link py-3" target="_blank" href="#"><i class="fas fa-envelope fa-2x"></i></a></li>
-                        <li class="nav-item">
-                            <a class="nav-link py-3" target="_blank" href="https://api.whatsapp.com/send?phone=5491133210253&text=Ciao%20,fai%20la%20tua%20domanda%20tramite%20WhatsApp."><i class="fab fa-whatsapp fa-2x"></i></a></li>
-                        <li class="nav-item">
-                            <a class="nav-link py-3" target="_blank" href="https://www.instagram.com/leandro_sain/" ><i class="fab fa-instagram-square fa-2x"></i></a></li>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8">
+                    <div class="hero-content animate__animated animate__fadeInUp">
+                        <img src="/placeholder.svg?height=150&width=150" alt="Sainni Art & Deco Logo" class="hero-logo mb-4">
+                        <h1 class="hero-title">Sainni Art & Deco</h1>
+                        <p class="hero-subtitle">Arte y Decoración Únicos</p>
+                        <p class="hero-description">Transformamos espacios con creatividad y estilo personal</p>
+                        <a href="#galeria" class="btn btn-primary btn-lg mt-3">Ver Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA SECTION -->
+    <section id="galeria" class="section-padding">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2 class="animate__animated animate__fadeInUp">Nuestra Galería</h2>
+                <p class="text-muted">Descubre nuestras creaciones más destacadas</p>
+            </div>
+            
+            <!-- Filtros -->
+            <div class="filter-buttons text-center mb-5">
+                <button class="btn btn-outline-primary active" data-filter="all">Todos</button>
+                <button class="btn btn-outline-primary" data-filter="arte">Arte</button>
+                <button class="btn btn-outline-primary" data-filter="deco">Decoración</button>
+                <button class="btn btn-outline-primary" data-filter="custom">Personalizado</button>
+            </div>
+            
+            <!-- Grid de imágenes -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Imagen 1 -->
+                <div class="gallery-item" data-category="arte" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="/placeholder.svg?height=400&width=300" data-title="Arte Abstracto" data-description="Obra de arte abstracto con técnicas mixtas">
+                    <div class="gallery-image">
+                        <img src="/placeholder.svg?height=400&width=300" alt="Arte 1" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5>Arte Abstracto</h5>
+                                <p>Técnicas mixtas</p>
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imagen 2 -->
+                <div class="gallery-item" data-category="deco" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="/placeholder.svg?height=500&width=300" data-title="Decoración Moderna" data-description="Elementos decorativos para espacios modernos">
+                    <div class="gallery-image">
+                        <img src="/placeholder.svg?height=500&width=300" alt="Decoración 1" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5>Decoración Moderna</h5>
+                                <p>Espacios contemporáneos</p>
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imagen 3 -->
+                <div class="gallery-item" data-category="custom" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="/placeholder.svg?height=350&width=300" data-title="Trabajo Personalizado" data-description="Creación única según especificaciones del cliente">
+                    <div class="gallery-image">
+                        <img src="/placeholder.svg?height=350&width=300" alt="Personalizado 1" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5>Trabajo Personalizado</h5>
+                                <p>Diseño único</p>
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imagen 4 -->
+                <div class="gallery-item" data-category="arte" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="/placeholder.svg?height=450&width=300" data-title="Pintura Contemporánea" data-description="Obra contemporánea con colores vibrantes">
+                    <div class="gallery-image">
+                        <img src="/placeholder.svg?height=450&width=300" alt="Arte 2" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5>Pintura Contemporánea</h5>
+                                <p>Colores vibrantes</p>
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imagen 5 -->
+                <div class="gallery-item" data-category="deco" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="/placeholder.svg?height=400&width=300" data-title="Elementos Decorativos" data-description="Piezas decorativas para el hogar">
+                    <div class="gallery-image">
+                        <img src="/placeholder.svg?height=400&width=300" alt="Decoración 2" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5>Elementos Decorativos</h5>
+                                <p>Para el hogar</p>
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imagen 6 -->
+                <div class="gallery-item" data-category="custom" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="/placeholder.svg?height=380&width=300" data-title="Proyecto Especial" data-description="Proyecto especial desarrollado a medida">
+                    <div class="gallery-image">
+                        <img src="/placeholder.svg?height=380&width=300" alt="Personalizado 2" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5>Proyecto Especial</h5>
+                                <p>A medida</p>
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imagen 7 -->
+                <div class="gallery-item" data-category="arte" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="/placeholder.svg?height=420&width=300" data-title="Escultura Moderna" data-description="Escultura con materiales reciclados">
+                    <div class="gallery-image">
+                        <img src="/placeholder.svg?height=420&width=300" alt="Arte 3" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5>Escultura Moderna</h5>
+                                <p>Materiales reciclados</p>
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imagen 8 -->
+                <div class="gallery-item" data-category="deco" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="/placeholder.svg?height=460&width=300" data-title="Ambientación" data-description="Ambientación completa de espacios">
+                    <div class="gallery-image">
+                        <img src="/placeholder.svg?height=460&width=300" alt="Decoración 3" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <div class="gallery-content">
+                                <h5>Ambientación</h5>
+                                <p>Espacios completos</p>
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTROS SECTION -->
+    <section id="nosotros" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Nosotros</h2>
+                <p class="text-muted">Conoce nuestra historia y pasión por el arte</p>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <img src="/placeholder.svg?height=400&width=600" alt="Sobre nosotros" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-3">Nuestra Pasión</h3>
+                    <p class="mb-4">
+                        En Sainni Art & Deco, creemos que cada espacio tiene el potencial de contar una historia única. 
+                        Nos especializamos en transformar ambientes a través del arte y la decoración personalizada.
+                    </p>
+                    <p class="mb-4">
+                        Con años de experiencia en el mundo del arte y el diseño, ofrecemos soluciones creativas 
+                        que reflejan la personalidad y estilo de cada cliente.
+                    </p>
+                    
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <div class="feature-item">
+                                <i class="fas fa-palette text-primary mb-2"></i>
+                                <h5>Arte Personalizado</h5>
+                                <p class="small">Creaciones únicas según tu visión</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="feature-item">
+                                <i class="fas fa-home text-primary mb-2"></i>
+                                <h5>Decoración Integral</h5>
+                                <p class="small">Ambientación completa de espacios</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO SECTION -->
+    <section id="contacto" class="section-padding">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Contacto</h2>
+                <p class="text-muted">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-methods">
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <h5>Email</h5>
+                                    <p>contacto@sainniart.com</p>
+                                    <a href="mailto:contacto@sainniart.com" class="btn btn-outline-primary btn-sm">Enviar Email</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <h5>WhatsApp</h5>
+                                    <p>+54 9 11 3321-0253</p>
+                                    <a href="https://api.whatsapp.com/send?phone=5491133210253" target="_blank" class="btn btn-outline-success btn-sm">Chatear</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
+                                    <h5>Instagram</h5>
+                                    <p>@leandro_sain</p>
+                                    <a href="https://www.instagram.com/leandro_sain/" target="_blank" class="btn btn-outline-primary btn-sm">Seguir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-section bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center py-4">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <img src="/placeholder.svg?height=50&width=50" alt="Logo" class="rounded-circle me-3">
+                        <div>
+                            <h5 class="mb-0">Sainni Art & Deco</h5>
+                            <small class="text-muted">Arte y Decoración</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul class="footer-links list-unstyled d-flex justify-content-md-end justify-content-center mb-0">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
-<br>
-    
-        <!------------------------------------------------Cabezera Principal--------------------------------------------------------------------->
-        <div  class="container-fluid masthead text-dark text-center fondoinicio-background">         
-            <div>
-                <img style="height:50%;width: 50%; max-width: 150px; min-height: 10px; height: auto; border-radius: 50%; margin-bottom: 1%;" class="img-responsive " class="ms-5 " src="imagenes/logo.png" alt="png" />
-                <h2> Sainni Art & Deco </h2>
+            <hr class="my-3">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Sainni Art & Deco. Todos los derechos reservados.</p>
             </div>
         </div>
+    </footer>
 
-     <!--------------------------------------------------Portfolio Galeria de imagenes----------------------------------------------------->
-
-        <div  class="page-section portfolio" id="portfolio">
-            <div class="container-fluid my-5">
-                <!------------------------------------------------Portfolio Section Heading--------------------------------------------------------->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary  mb-0 mt-5 "id="categoria1">GALERIA</h2>
-                <div class="row justify-content-center ">
-                    <!------------------------------------------------Portfolio Item 1------------------------------------------------------->
-                    
-                    <!------------------------------------- columna 1------------------------------------->
-                    
-                    <div class="row justify-content-center ">
-                        <div class="col-md-3 ">
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="#portfolioModal11" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/imagen11.jpeg" alt="jpeg"/>
-                            </div>
-                            <div class="portfolio-item  mt-3 ms-4" data-toggle="modal" data-target="" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/portada1.jpg" alt="jpg"/>
-                            </div>
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="#portfolioModal11" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/imagen11.jpeg" alt="jpeg"/>
-                            </div>
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="#portfolioModal11" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/imagen11.jpeg" alt="jpeg"/>
-                            </div>
-                        </div>
-    
-                        <!------------------------------------- columna 2 ------------------------------------->
-    
-                        <div class="col-md-3 ">
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="#portfolioModal11" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/imagen11.jpeg" alt="jpeg"/>
-                            </div>
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="#portfolioModal11" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/imagen11.jpeg" alt="jpeg"/>
-                            </div>
-                            <div class="portfolio-item  mt-3 ms-4" data-toggle="modal" data-target="" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/portada1.jpg" alt="jpg"/>
-                            </div>
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="#portfolioModal11" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/imagen11.jpeg" alt="jpeg"/>
-                            </div>
-                        </div> 
-                        
-                        <!------------------------------------- columna 3 ------------------------------------->
-    
-                        <div class="col-md-3 ">
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="#portfolioModal11" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/imagen11.jpeg" alt="jpeg"/>
-                            </div>
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="#portfolioModal11" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/imagen11.jpeg" alt="jpeg"/>
-                            </div>
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/portada1.jpg" alt="jpg"/>
-                            </div>
-                            <div class="portfolio-item mt-3 ms-4" data-toggle="modal" data-target="#portfolioModal11" >
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"></div>
-                                </div>
-                                    <img class="img-fluid rounded border shadow" loading="lazy" src="imagenes/imagen11.jpeg" alt="jpeg"/>
-                            </div>
-                        </div>                       
+    <!-- MODAL PARA IMÁGENES -->
+    <div class="modal fade" id="imageModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="modalTitle">Título de la imagen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-    <br><br>                  
-                </div>    
-            </div>
-
-        </div>    
-
-
-
-        <!-----------------------------------------------------Contenedor About--------------------------------------------------------------------->
-        <h2 class="page-section-heading text-center text-uppercase text-dark mt-5 "id="categoria1">NOSOTROS</h2>
-       <br><br>
-         <div class="divider-custom">
-             <div class="divider-custom-line"></div>
-         </div>
-  
-
-
-
-        
-        <!--------------------------------------------------------Portfolio Modals---------------------------------------------------------------------------------------------------->
-
-
-        <!------------------------------------------------------------Portfolio Modal 1 ----------------------------------------------->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-----------------------------Portfolio Modal - Title-------------------------------------->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label"></h2>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="imagenes/imagen1.jpeg" alt="jpeg" />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5"></p>
-                                    <button class="btn btn-dark" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        CERRAR
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
-
-        <!------------------------------------------------------------Portfolio Modal 11 ----------------------------------------------->
-        <div class="portfolio-modal modal fade" id="portfolioModal11" tabindex="-1" role="dialog" aria-labelledby="portfolioModal11Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    
-                        
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-----------------------------Portfolio Modal - Title-------------------------------------->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal5Label"></h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="imagenes/imagen11.jpeg" alt="jpeg" />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">..........  </p>
-                                    <button class="btn btn-dark" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        CERRAR
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="/placeholder.svg" alt="" class="img-fluid rounded mb-3">
+                    <p id="modalDescription" class="text-muted"></p>
                 </div>
             </div>
         </div>
-        
-        
-        <!------------------------------------------------Portfolio Item 1------------------------------------------------------->
-
-
-        <!-- Bootstrap core JS-->
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-        <!-- Contact form JS-->
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>      
-        
     </div>
 
-</body>
-
-<footer>
-
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid justify-content-center">
-            <div class="col-md-0 pt-0  ">
-                <img style="height:50%;width: 50%; max-width: 200px; min-height: 10px; height: auto; border-radius: 40%" class="img-responsive " class="ms-5 " src="imagenes/iconLanas.jpg" alt="png" />
-                        <!--a href="mailto:by.omoi0@gmail4.com"><p class="px-5">by.omoi0@gmail.com</p></a>-->
-            </div>
-                <ul class="navbar-nav ">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Preguntas frecuentes <i class="fas fa-info-circle"></i></a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contáctenos <i class="fas fa-comments"></i></a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="https://www.instagram.com/leandro_sain/" >Seguinos en las redes <i class="fas fa-camera-retro"></i></a></li>
-                </ul>
-        </div>            
-    </nav> 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-</footer>
+    <!-- JavaScript personalizado -->
+    <script src="script.js"></script>
+</body>
 </html>
