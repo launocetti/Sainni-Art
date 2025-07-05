@@ -12,7 +12,15 @@ body {
     -webkit-tap-highlight-color: transparent;
   
 }
-  
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
 
   .badge {
     border: 0.125rem solid #000;
