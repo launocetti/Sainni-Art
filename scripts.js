@@ -1,73 +1,149 @@
+// ===== SMOOTH SCROLLING =====
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault()
+    const target = document.querySelector(this.getAttribute("href"))
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }
+  })
+})
 
-(function ($) {
-    "use strict"; // Start of use strict
+// ===== NAVBAR SCROLL EFFECT =====
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar")
+  if (window.scrollY > 50) {
+    navbar.style.background = "rgba(33, 37, 41, 0.95)"
+    navbar.style.backdropFilter = "blur(10px)"
+  } else {
+    navbar.style.background = "var(--dark-color)"
+    navbar.style.backdropFilter = "none"
+  }
+})
 
-    // Smooth scrolling using anime.js
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').on('click', function () {
-        if (
-            location.pathname.replace(/^\//, "") ==
-            this.pathname.replace(/^\//, "") &&
-            location.hostname == this.hostname
-        ) {
-            var target = $(this.hash);
-            target = target.length ?
-                target :
-                $("[name=" + this.hash.slice(1) + "]");
-            if (target.length) {
-                anime({
-                    targets: 'html, body',
-                    scrollTop: target.offset().top - 72,
-                    duration: 1000,
-                    easing: 'easeInOutExpo'
-                });
-                return false;
-            }
-        }
-    });
+// ===== GALLERY FILTER =====
+const filterButtons = document.querySelectorAll(".filter-buttons .btn")
+const galleryItems = document.querySelectorAll(".gallery-item")
 
-    // Scroll to top button appear
-    $(document).scroll(function () {
-        var scrollDistance = $(this).scrollTop();
-        if (scrollDistance > 100) {
-            $('.scroll-to-top').fadeIn();
-        } else {
-            $('.scroll-to-top').fadeOut();
-        }
-    });
+filterButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    // Remove active class from all buttons
+    filterButtons.forEach((btn) => btn.classList.remove("active"))
+    // Add active class to clicked button
+    this.classList.add("active")
 
-    // Closes responsive menu when a scroll trigger link is clicked
-    $('.js-scroll-trigger').click(function () {
-        $('.navbar-collapse').collapse('hide');
-    });
+    const filter = this.getAttribute("data-filter")
 
-    // Activate scrollspy to add active class to navbar items on scroll
-    $('body').scrollspy({
-        target: '#mainNav',
-        offset: 80
-    });
+    galleryItems.forEach((item) => {
+      if (filter === "all" || item.getAttribute("data-category") === filter) {
+        item.style.display = "block"
+        item.style.animation = "fadeInUp 0.5s ease"
+      } else {
+        item.style.display = "none"
+      }
+    })
+  })
+})
 
-    // Collapse Navbar
-    var navbarCollapse = function () {
-        if ($("#mainNav").offset().top > 100) {
-            $("#mainNav").addClass("navbar-shrink");
-        } else {
-            $("#mainNav").removeClass("navbar-shrink");
-        }
-    };
-    // Collapse now if page is not at top
-    navbarCollapse();
-    // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
+// ===== IMAGE MODAL =====
+const imageModal = document.getElementById("imageModal")
+const modalImage = document.getElementById("modalImage")
+const modalTitle = document.getElementById("modalTitle")
+const modalDescription = document.getElementById("modalDescription")
 
-    // Floating label headings for the contact form
-    $(function () {
-        $("body").on("input propertychange", ".floating-label-form-group", function (e) {
-            $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-        }).on("focus", ".floating-label-form-group", function () {
-            $(this).addClass("floating-label-form-group-with-focus");
-        }).on("blur", ".floating-label-form-group", function () {
-            $(this).removeClass("floating-label-form-group-with-focus");
-        });
-    });
+document.querySelectorAll(".gallery-item").forEach((item) => {
+  item.addEventListener("click", function () {
+    const imageSrc = this.getAttribute("data-image")
+    const title = this.getAttribute("data-title")
+    const description = this.getAttribute("data-description")
 
-})(jQuery); // End of use strict
+    modalImage.src = imageSrc
+    modalTitle.textContent = title
+    modalDescription.textContent = description
+  })
+})
+
+// ===== CLOSE MOBILE MENU =====
+const bootstrap = window.bootstrap // Declare the bootstrap variable
+document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    const navbarCollapse = document.querySelector(".navbar-collapse")
+    if (navbarCollapse.classList.contains("show")) {
+      bootstrap.Collapse.getInstance(navbarCollapse).hide()
+    }
+  })
+})
+
+// ===== ANIMATE ON SCROLL =====
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animated")
+    }
+  })
+}, observerOptions)
+
+// Observe elements for animation
+document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+  observer.observe(el)
+})
+
+// ===== LOADING ANIMATION =====
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded")
+})
+
+// ===== GALLERY MASONRY EFFECT =====
+function adjustGalleryLayout() {
+  const grid = document.getElementById("galleryGrid")
+  const items = grid.querySelectorAll(".gallery-item")
+
+  // Reset any previous styles
+  items.forEach((item) => {
+    item.style.gridRowEnd = "auto"
+  })
+
+  // Apply masonry effect on larger screens
+  if (window.innerWidth > 768) {
+    items.forEach((item) => {
+      const img = item.querySelector("img")
+      if (img.complete) {
+        const height = img.naturalHeight
+        const rowSpan = Math.ceil(height / 10)
+        item.style.gridRowEnd = `span ${Math.min(rowSpan, 50)}`
+      }
+    })
+  }
+}
+
+// Adjust layout on load and resize
+window.addEventListener("load", adjustGalleryLayout)
+window.addEventListener("resize", adjustGalleryLayout)
+
+// ===== PRELOAD IMAGES =====
+function preloadImages() {
+  const images = document.querySelectorAll("img[data-src]")
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target
+        img.src = img.dataset.src
+        img.classList.remove("lazy")
+        imageObserver.unobserve(img)
+      }
+    })
+  })
+
+  images.forEach((img) => imageObserver.observe(img))
+}
+
+// Initialize preloading
+document.addEventListener("DOMContentLoaded", preloadImages)
