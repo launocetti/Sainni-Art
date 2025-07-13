@@ -464,5 +464,5 @@ h6 {
 /* ===== ESTILOS PARA CAROUSEL RÁPIDO ===== */
 
 .carousel-item {
-  transition: transform 0.3s ease-in-out; /* Transición más rápida */
+  transition: transform 0.1s ease-in-out; /* Transición más rápida */
 }
