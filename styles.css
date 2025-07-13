@@ -465,14 +465,4 @@ h6 {
 
 .carousel-item {
   transition: transform 0.3s ease-in-out; /* Transición más rápida */
-
-/* Indicadores más pequeños y elegantes */
-.carousel-indicators [data-bs-target] {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin: 0 3px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: none;
 }
-
