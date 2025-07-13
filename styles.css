@@ -462,22 +462,9 @@ h6 {
 /*prueba carrousel rapido*/
 
 /* ===== ESTILOS PARA CAROUSEL RÁPIDO ===== */
-.carousel {
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-}
 
 .carousel-item {
   transition: transform 0.3s ease-in-out; /* Transición más rápida */
-}
-
-.carousel-item img {
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-}
 
 /* Indicadores más pequeños y elegantes */
 .carousel-indicators [data-bs-target] {
@@ -487,66 +474,5 @@ h6 {
   margin: 0 3px;
   background-color: rgba(255, 255, 255, 0.6);
   border: none;
-}
-
-.carousel-indicators .active {
-  background-color: #fff;
-  transform: scale(1.2);
-}
-
-/* Controles más sutiles */
-.carousel-control-prev,
-.carousel-control-next {
-  width: 40px;
-  height: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.carousel-control-prev {
-  left: 10px;
-}
-
-.carousel-control-next {
-  right: 10px;
-}
-
-/* Caption mejorado */
-.carousel-caption {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  padding: 10px 15px;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-}
-
-/* Efectos de hover */
-.carousel:hover .carousel-control-prev,
-.carousel:hover .carousel-control-next {
-  opacity: 1;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .carousel-item img {
-    height: 200px;
-  }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 35px;
-    height: 35px;
-  }
 }
 
