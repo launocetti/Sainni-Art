@@ -25,6 +25,7 @@ window.addEventListener("scroll", () => {
 })
 
 // ===== GALLERY FILTER =====
+/*
 const filterButtons = document.querySelectorAll(".filter-buttons .btn")
 const galleryItems = document.querySelectorAll(".gallery-item")
 
@@ -45,6 +46,62 @@ filterButtons.forEach((button) => {
         item.style.display = "none"
       }
     })
+  })
+})
+*/
+
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-buttons .btn")
+  const galleryItems = document.querySelectorAll(".gallery-item")
+
+  console.log("Botones encontrados:", filterButtons.length)
+  console.log("Items de galería encontrados:", galleryItems.length)
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault()
+
+      // Remove active class from all buttons
+      filterButtons.forEach((btn) => btn.classList.remove("active"))
+      // Add active class to clicked button
+      this.classList.add("active")
+
+      const filter = this.getAttribute("data-filter")
+      console.log("Filtro seleccionado:", filter)
+
+      galleryItems.forEach((item, index) => {
+        const itemCategory = item.getAttribute("data-category")
+        console.log(`Item ${index}: categoría = ${itemCategory}`)
+
+        if (filter === "all" || itemCategory === filter) {
+          item.style.display = "block"
+          item.style.opacity = "0"
+          item.style.transform = "scale(0.8)"
+
+          // Animación de entrada
+          setTimeout(() => {
+            item.style.transition = "all 0.3s ease"
+            item.style.opacity = "1"
+            item.style.transform = "scale(1)"
+          }, index * 50)
+        } else {
+          item.style.transition = "all 0.3s ease"
+          item.style.opacity = "0"
+          item.style.transform = "scale(0.8)"
+
+          setTimeout(() => {
+            item.style.display = "none"
+          }, 300)
+        }
+      })
+    })
+  })
+
+  // Mostrar todos los elementos al cargar la página
+  galleryItems.forEach((item) => {
+    item.style.display = "block"
+    item.style.opacity = "1"
+    item.style.transform = "scale(1)"
   })
 })
 
