@@ -298,3 +298,212 @@ function preloadImages() {
 
 // Initialize preloading
 document.addEventListener("DOMContentLoaded", preloadImages)
+
+/*prueba carrousel modal*/
+
+// ===== CAROUSEL DINÁMICO Y LIVIANO =====
+class DynamicCarousel {
+  constructor(modalId, images) {
+    this.modalId = modalId
+    this.images = images
+    this.currentIndex = 0
+    this.modal = document.getElementById(modalId)
+    this.carouselElement = null
+    this.init()
+  }
+
+  init() {
+    // Escuchar cuando se abre el modal
+    this.modal.addEventListener("shown.bs.modal", () => {
+      this.buildCarousel()
+      this.setupEventListeners()
+    })
+
+    // Limpiar cuando se cierra el modal
+    this.modal.addEventListener("hidden.bs.modal", () => {
+      this.cleanup()
+    })
+  }
+
+  buildCarousel() {
+    const indicatorsContainer = document.getElementById("carouselIndicators")
+    const slidesContainer = document.getElementById("carouselSlides")
+
+    // Limpiar contenido previo
+    indicatorsContainer.innerHTML = ""
+    slidesContainer.innerHTML = ""
+
+    // Crear indicadores
+    this.images.forEach((image, index) => {
+      const indicator = document.createElement("button")
+      indicator.type = "button"
+      indicator.setAttribute("data-bs-target", "#dynamicCarousel")
+      indicator.setAttribute("data-bs-slide-to", index)
+      if (index === 0) indicator.classList.add("active")
+      indicatorsContainer.appendChild(indicator)
+    })
+
+    // Crear slides
+    this.images.forEach((image, index) => {
+      const slide = document.createElement("div")
+      slide.className = `carousel-item ${index === 0 ? "active" : ""}`
+
+      slide.innerHTML = `
+        <div class="carousel-loading" style="display: none;">
+          <div class="spinner"></div>
+        </div>
+        <img src="${image.src}" alt="${image.alt}" class="d-block w-100" 
+             onload="this.previousElementSibling.style.display='none'"
+             onerror="this.src='/placeholder.svg?height=400&width=600&text=Error+al+cargar'"
+             loading="lazy">
+      `
+
+      slidesContainer.appendChild(slide)
+    })
+
+    // Actualizar contador
+    this.updateCounter()
+
+    // Inicializar carousel de Bootstrap
+    this.carouselElement = new window.bootstrap.Carousel(document.getElementById("dynamicCarousel"), {
+      interval: false, // No auto-play
+      wrap: true,
+      keyboard: true,
+    })
+  }
+
+  setupEventListeners() {
+    const carousel = document.getElementById("dynamicCarousel")
+
+    // Escuchar cambios de slide
+    carousel.addEventListener("slide.bs.carousel", (event) => {
+      this.currentIndex = event.to
+      this.updateCounter()
+    })
+
+    // Navegación con teclado
+    document.addEventListener("keydown", this.handleKeyboard.bind(this))
+
+    // Navegación táctil (swipe)
+    this.setupTouchNavigation(carousel)
+  }
+
+  handleKeyboard(event) {
+    if (!this.modal.classList.contains("show")) return
+
+    switch (event.key) {
+      case "ArrowLeft":
+        event.preventDefault()
+        this.carouselElement.prev()
+        break
+      case "ArrowRight":
+        event.preventDefault()
+        this.carouselElement.next()
+        break
+      case "Escape":
+        window.bootstrap.Modal.getInstance(this.modal).hide()
+        break
+    }
+  }
+
+  setupTouchNavigation(element) {
+    let startX = 0
+    let endX = 0
+
+    element.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX
+    })
+
+    element.addEventListener("touchend", (e) => {
+      endX = e.changedTouches[0].clientX
+      this.handleSwipe()
+    })
+
+    element.addEventListener("touchmove", (e) => {
+      e.preventDefault() // Prevenir scroll
+    })
+  }
+
+  handleSwipe() {
+    const threshold = 50
+    const diff = this.startX - this.endX
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        this.carouselElement.next() // Swipe left - siguiente
+      } else {
+        this.carouselElement.prev() // Swipe right - anterior
+      }
+    }
+  }
+
+  updateCounter() {
+    const currentElement = document.getElementById("currentImage")
+    const totalElement = document.getElementById("totalImages")
+
+    if (currentElement && totalElement) {
+      currentElement.textContent = this.currentIndex + 1
+      totalElement.textContent = this.images.length
+    }
+  }
+
+  cleanup() {
+    document.removeEventListener("keydown", this.handleKeyboard.bind(this))
+    if (this.carouselElement) {
+      this.carouselElement.dispose()
+      this.carouselElement = null
+    }
+  }
+
+  // Método para actualizar imágenes dinámicamente
+  updateImages(newImages) {
+    this.images = newImages
+    this.currentIndex = 0
+    if (this.modal.classList.contains("show")) {
+      this.buildCarousel()
+    }
+  }
+}
+
+// ===== INICIALIZACIÓN =====
+document.addEventListener("DOMContentLoaded", () => {
+  // Definir las imágenes para el carousel
+  const onePieceImages = [
+    {
+      src: "/imagenes/One piece 1.jpeg",
+      alt: "One Piece - Fruta del Demonio 1",
+    },
+    {
+      src: "/imagenes/One piece 2.jpeg",
+      alt: "One Piece - Fruta del Demonio 2",
+    },
+    {
+      src: "/imagenes/One piece 3.jpeg",
+      alt: "One Piece - Fruta del Demonio 3",
+    },
+  ]
+
+  // Crear instancia del carousel dinámico
+  const carousel = new DynamicCarousel("imageModal4", onePieceImages)
+
+  // Ejemplo de cómo cambiar imágenes dinámicamente
+  window.updateCarouselImages = (newImages) => {
+    carousel.updateImages(newImages)
+  }
+})
+
+// ===== FUNCIÓN PARA ABRIR MODAL CON IMÁGENES ESPECÍFICAS =====
+function openImageCarousel(images, title = "Galería", description = "") {
+  // Actualizar título y descripción
+  document.querySelector("#imageModal4 .modal-title").textContent = title
+  document.getElementById("modalDescription").textContent = description
+
+  // Actualizar imágenes
+  if (window.updateCarouselImages) {
+    window.updateCarouselImages(images)
+  }
+
+  // Abrir modal
+  const modal = new window.bootstrap.Modal(document.getElementById("imageModal4"))
+  modal.show()
+}
