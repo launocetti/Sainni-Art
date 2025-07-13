@@ -114,11 +114,14 @@ h6 {
 /* ===== HERO SECTION ===== */
 .hero-section {
   height: 100vh;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  background-image: url("imagenes/imagen-fondo4.jpg");
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
+  /*
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  */
 }
 
 .hero-overlay {
