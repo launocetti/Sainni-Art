@@ -26,6 +26,8 @@ window.addEventListener("scroll", () => {
 
 // ===== GALLERY FILTER =====
 /*
+muestra solo los item de las categorias pero no selecciona el filtro de categorias
+
 const filterButtons = document.querySelectorAll(".filter-buttons .btn")
 const galleryItems = document.querySelectorAll(".gallery-item")
 
@@ -48,7 +50,10 @@ filterButtons.forEach((button) => {
     })
   })
 })
-*/
+
+-----
+muestra la cantidad de elementos en cada categoria en el item
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = document.querySelectorAll(".filter-buttons .btn")
@@ -104,6 +109,95 @@ document.addEventListener("DOMContentLoaded", () => {
     item.style.transform = "scale(1)"
   })
 })
+
+*/
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-buttons .btn")
+  const galleryItems = document.querySelectorAll(".gallery-item")
+
+  console.log("Botones encontrados:", filterButtons.length)
+  console.log("Items de galería encontrados:", galleryItems.length)
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault()
+
+      // Remove active class from all buttons
+      filterButtons.forEach((btn) => btn.classList.remove("active"))
+      // Add active class to clicked button
+      this.classList.add("active")
+
+      const filter = this.getAttribute("data-filter")
+      console.log("Filtro seleccionado:", filter)
+
+      // Ocultar TODOS los elementos primero
+      galleryItems.forEach((item) => {
+        item.style.transition = "all 0.3s ease"
+        item.style.opacity = "0"
+        item.style.transform = "scale(0.8)"
+
+        setTimeout(() => {
+          item.style.display = "none"
+        }, 300)
+      })
+
+      // Después de ocultar todo, mostrar solo la categoría seleccionada
+      setTimeout(() => {
+        let visibleIndex = 0
+
+        galleryItems.forEach((item) => {
+          const itemCategory = item.getAttribute("data-category")
+          console.log(`Verificando item: categoría = ${itemCategory}, filtro = ${filter}`)
+
+          // Solo mostrar si coincide con el filtro O si el filtro es "all"
+          if (filter === "all" || itemCategory === filter) {
+            item.style.display = "block"
+            item.style.opacity = "0"
+            item.style.transform = "scale(0.8)"
+
+            // Animación de entrada escalonada
+            setTimeout(() => {
+              item.style.transition = "all 0.4s ease"
+              item.style.opacity = "1"
+              item.style.transform = "scale(1)"
+            }, visibleIndex * 100) // Delay escalonado
+
+            visibleIndex++
+          }
+        })
+
+        // Actualizar contadores
+        updateFilterCounts()
+      }, 350) // Esperar a que termine la animación de salida
+    })
+  })
+
+  // Función para actualizar contadores
+  function updateFilterCounts() {
+    const arteCount = document.querySelectorAll('[data-category="arte"]').length
+    const decoCount = document.querySelectorAll('[data-category="deco"]').length
+    const customCount = document.querySelectorAll('[data-category="custom"]').length
+    const totalCount = galleryItems.length
+
+    document.getElementById("count-all").textContent = totalCount
+    document.getElementById("count-arte").textContent = arteCount
+    document.getElementById("count-deco").textContent = decoCount
+    document.getElementById("count-custom").textContent = customCount
+  }
+
+  // Mostrar todos los elementos al cargar la página
+  galleryItems.forEach((item, index) => {
+    item.style.display = "block"
+    item.style.opacity = "1"
+    item.style.transform = "scale(1)"
+  })
+
+  // Inicializar contadores
+  updateFilterCounts()
+})
+
+
 
 // ===== IMAGE MODAL =====
 const imageModal = document.getElementById("imageModal")
