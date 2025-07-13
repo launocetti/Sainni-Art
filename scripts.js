@@ -51,7 +51,7 @@ filterButtons.forEach((button) => {
   })
 })
 
------
+------
 muestra la cantidad de elementos en cada categoria en el item
 
 
